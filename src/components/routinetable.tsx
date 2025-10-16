@@ -47,6 +47,7 @@ interface ApiResponse {
 /**
  * Universal Class Schedule Component with Multiple Export Options
  */
+const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
 const UniversalExportClassSchedule: React.FC<ClassScheduleProps> = ({ 
   data, 
   title = "First terminal exam routine",
@@ -66,7 +67,7 @@ const UniversalExportClassSchedule: React.FC<ClassScheduleProps> = ({
   const fetchClass = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8000/api/class-sections');
+      const response = await fetch(`${API_BASE_URL}/api/class-sections`);
       if (!response.ok) throw new Error('Failed to fetch classes');
       
       const result: ApiResponse = await response.json();

@@ -11,6 +11,7 @@ import {
   AlertDialogDescription,
   AlertDialogCancel,
 } from './ui/alert-dialog';
+const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
 
 interface NavbarProps {
   role?: 'guest' | 'admin' | 'teacher' | 'student';
@@ -146,7 +147,7 @@ const Navbar: React.FC<NavbarProps> = ({
         case 'loginToadmin':
           console.log('Sending admin login request for:', loginForm.username);
           
-          response = await fetch("http://localhost:8000/api/admins/login", {
+          response = await fetch(`${API_BASE_URL}/api/admins/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
