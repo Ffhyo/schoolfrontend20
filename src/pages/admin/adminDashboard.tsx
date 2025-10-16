@@ -22,7 +22,7 @@ interface DashboardData {
   recentStudents: any[];
   adminActivity: any[];
 }
-
+const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
 const AdminDashboard: React.FC = () => {
   const { adminId } = useParams();
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
@@ -38,7 +38,7 @@ const AdminDashboard: React.FC = () => {
         throw new Error('Admin ID not found');
       }
 
-      const response = await fetch(`http://localhost:8000/api/admins/${adminId}/dashboard`);
+      const response = await fetch(`${API_BASE_URL}/${adminId}/dashboard`);
       
       if (!response.ok) {
         throw new Error(`Failed to fetch dashboard data: ${response.status}`);

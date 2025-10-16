@@ -40,7 +40,7 @@ interface RoutineProps {
   setRoutines: React.Dispatch<React.SetStateAction<ExamRoutine[]>>;
   addNotification: (message: string, type?: 'success' | 'error' | 'info') => void;
 }
-
+const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
 export default function Routine({
   activeSection,
   classes,
@@ -81,7 +81,7 @@ export default function Routine({
 
   const fetchSubjects = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/subjects/subjects');
+      const response = await fetch(`${API_BASE_URL}/api/subjects/subjects`);
       if (!response.ok) {
         throw new Error('Failed to fetch subjects');
       }
@@ -151,7 +151,7 @@ export default function Routine({
           practicalfullMarks: newSubject.practicalfullMarks,
         };
 
-        const response = await fetch('http://localhost:8000/api/subjects', {
+        const response = await fetch(`${API_BASE_URL}/api/subjects`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json', 
@@ -215,7 +215,7 @@ export default function Routine({
     try {
       const subjectToUpdate = updatedSubjects.find(sub => sub.id === id);
       if (subjectToUpdate) {
-        const response = await fetch(`http://localhost:8000/api/subjects/subjects/update/${id}`, {
+        const response = await fetch( `${API_BASE_URL}/api/subjects/subjects/update/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -264,7 +264,7 @@ export default function Routine({
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/api/subjects/subjects/delete/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/subjects/subjects/delete/${id}`, {
         method: 'DELETE'
       });
 

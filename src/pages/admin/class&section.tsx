@@ -53,6 +53,8 @@ interface ClassSectionProps {
   addNotification: (message: string, type?: 'success' | 'error' | 'info') => void;
 }
 
+const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
+
 export default function ClassSection({ addNotification }: ClassSectionProps) {
   // Active section state
   const [activeSection, setActiveSection] = useState<ActiveSection>('classes');
@@ -87,7 +89,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
   // Fetch classes function
   const fetchClasses = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/class-sections');
+      const response = await fetch(`${API_BASE_URL}/api/class-sections`);
       
       if (!response.ok) {
         throw new Error('Failed to fetch classes');
@@ -155,7 +157,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
     setNewClassName('');
 
     try {
-      const response = await fetch('http://localhost:8000/api/class-sections/create', { 
+      const response = await fetch(`${API_BASE_URL}/api/class-sections/create`, { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -197,7 +199,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
     setEditClassName('');
 
     try {
-      const response = await fetch(`http://localhost:8000/api/class-sections/${classId}`, {
+      const response = await fetch(` ${API_BASE_URL}/api/class-sections/${classId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: editClassName.trim() })
@@ -232,7 +234,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
     setSelectedClasses(newSelected);
 
     try {
-      const response = await fetch(`http://localhost:8000/api/class-sections/${classId}/delete`, {
+      const response = await fetch(` ${API_BASE_URL}/api/class-sections/${classId}/delete`, {
         method: 'DELETE'
       });
 
@@ -266,7 +268,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
       // Delete each class from backend
       await Promise.all(
         classesToDelete.map(cls => 
-          fetch(`http://localhost:8000/api/class-sections/${cls.id}`, {
+          fetch(` ${API_BASE_URL}/api/class-sections/${cls.id}`, {
             method: 'DELETE'
           })
         )
@@ -336,7 +338,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
     setNewSectionName('');
 
     try {
-      const response = await fetch(`http://localhost:8000/api/class-sections/${selectedClass}/sections`, {
+      const response = await fetch(`${API_BASE_URL}/api/class-sections/${selectedClass}/sections`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -382,7 +384,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
     setClasses(updatedClasses);
 
     try {
-      const response = await fetch(`http://localhost:8000/api/class-sections/${classId}/sections/${sectionIndex}`, {
+      const response = await fetch(` ${API_BASE_URL}/api/class-sections/${classId}/sections/${sectionIndex}`, {
         method: 'DELETE'
       });
 
@@ -448,7 +450,7 @@ export default function ClassSection({ addNotification }: ClassSectionProps) {
 
   try {
     // Make API call first
-    const response = await fetch('http://localhost:8000/api/exam/exams', {
+    const response = await fetch(`${API_BASE_URL}/api/exam/exams`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -491,7 +493,7 @@ const fetchExam = async () => {
   try {
     console.log('Fetching exams from: http://localhost:8000/api/exams/detail');
     
-    const response = await fetch('http://localhost:8000/api/exam/exams/detail');
+    const response = await fetch(` ${API_BASE_URL}/api/exam/exams/detail`);
     
     console.log('Response status:', response.status);
     
@@ -541,7 +543,7 @@ const fetchExam = async () => {
     
     if (examToDelete) {
       try{
-         const response = await fetch('http://localhost:8000/api/exam/exams/'+id+'/delete',{ 
+         const response = await fetch(`${API_BASE_URL}/api/exam/exams/'+id+'/delete`,{ 
         method: 'DELETE'
 
        } )

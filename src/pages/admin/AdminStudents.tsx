@@ -95,7 +95,7 @@ const AdminStudents: React.FC = () => {
   });
   const { adminId } = useParams<{ adminId: string }>();
   
-  const API_BASE_URL = 'http://localhost:8000/api';
+  const API_BASE_URL = 'https://schoolbackend-un9x.onrender.com/api';
   
   // Filter states
   const [searchTerm, setSearchTerm] = useState('');

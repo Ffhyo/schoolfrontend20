@@ -45,7 +45,7 @@ interface Hero {
   ctaText?: string;
   ctaLink?: string;
 }
-
+const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
 const Homepage: React.FC = () => {
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [loading, setLoading] = useState(true);
@@ -113,7 +113,7 @@ const Homepage: React.FC = () => {
     const fetchHeroes = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:8000/api/heroes');
+        const response = await fetch(`${API_BASE_URL}/api/heroes`);
         
         if (!response.ok) {
           throw new Error(`Failed to fetch heroes: ${response.status}`);
@@ -147,7 +147,7 @@ const Homepage: React.FC = () => {
     // If imagePath already includes full URL, return as is
     if (imagePath.startsWith('http')) return imagePath;
     // Otherwise, construct full URL from backend
-    return `http://localhost:8000${imagePath}`;
+    return `${API_BASE_URL}/${imagePath}`;
   };
 
   // Default hero content if no heroes are available
