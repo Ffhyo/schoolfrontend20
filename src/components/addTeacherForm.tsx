@@ -75,7 +75,7 @@ type TeacherFormData = z.infer<typeof teacherFormSchema>;
 
 const AddTeacherForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState('basic');
+ 
 
   const {
     register,
@@ -138,22 +138,13 @@ const AddTeacherForm: React.FC = () => {
 
   const subjects = watch('subjects');
   const gradeLevels = watch('gradeLevels');
-  const schedule = watch('schedule');
-
-  const commonSubjects = [
-    'Mathematics', 'Science', 'English', 'Social Studies', 'History',
-    'Geography', 'Physics', 'Chemistry', 'Biology', 'Computer Science',
-    'Art', 'Music', 'Physical Education', 'Languages', 'Economics'
-  ];
+ 
 
   const commonGradeLevels = [
     'Kindergarten',  '1','2','3','4','5','6','7','8','9','10'
   ];
 
-  const timeSlots = [
-    '08:00-09:00', '09:00-10:00', '10:00-11:00', '11:00-12:00',
-    '12:00-13:00', '13:00-14:00', '14:00-15:00', '15:00-16:00', '16:00-17:00'
-  ];
+  
 
   const addSubject = () => {
     const newSubject = prompt('Enter subject:');
@@ -178,14 +169,7 @@ const AddTeacherForm: React.FC = () => {
     setValue('gradeLevels', newGradeLevels);
   };
 
-  const toggleTimeSlot = (day: keyof TeacherFormData['schedule'], timeSlot: string) => {
-    const daySchedule = schedule[day] || [];
-    const newSchedule = daySchedule.includes(timeSlot)
-      ? daySchedule.filter(slot => slot !== timeSlot)
-      : [...daySchedule, timeSlot];
-    
-    setValue(`schedule.${day}`, newSchedule);
-  };
+   
 
   const onSubmit = async (data: TeacherFormData) => {
     setLoading(true);
@@ -203,7 +187,7 @@ const AddTeacherForm: React.FC = () => {
         throw new Error('Failed to create teacher');
       }
 
-      const result = await response.json();
+ 
       alert('Teacher created successfully!');
       // Reset form or redirect as needed
       window.location.reload();

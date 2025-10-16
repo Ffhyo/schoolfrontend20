@@ -344,8 +344,7 @@ export default function StudentsRelated() {
         assemblyActivities.forEach(monthlyActivity => {
             monthlyActivity.activities.forEach(activity => {
                 if (!participation[activity.studentId]) {
-                    const student = getStudentById(activity.studentId);
-                    participation[activity.studentId] = {
+                     participation[activity.studentId] = {
                         studentId: activity.studentId,
                         totalActivities: 0,
                         completedActivities: 0,
@@ -1175,8 +1174,7 @@ export default function StudentsRelated() {
                     ]
                 },
                 recommendedStudents: selectedStudents.slice(0, 2).map(id => {
-                    const student = getStudentById(id);
-                    return {
+                     return {
                         studentId: id,
                         reason: "Shows leadership potential and good communication skills",
                         role: "Assembly Conductor"
@@ -1244,8 +1242,7 @@ export default function StudentsRelated() {
                     ]
                 },
                 recommendedStudents: selectedStudents.slice(0, 3).map(id => {
-                    const student = getStudentById(id);
-                    return {
+                     return {
                         studentId: id,
                         reason: "Good research skills and clear pronunciation",
                         role: "News Presenter"
@@ -1365,8 +1362,7 @@ export default function StudentsRelated() {
                     ]
                 },
                 recommendedStudents: selectedStudents.slice(0, 3).map(id => {
-                    const student = getStudentById(id);
-                    return {
+                     return {
                         studentId: id,
                         reason: "Demonstrates good communication skills and confidence",
                         role: "Speech Presenter"

@@ -62,7 +62,7 @@ const TeacherDashboard: React.FC = () => {
     attendance: 0,
     performance: 'good'
   });
-  
+  console.log(stats)
   const [recentActivities, setRecentActivities] = useState<Activity[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
