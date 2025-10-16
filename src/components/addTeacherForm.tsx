@@ -72,10 +72,10 @@ const teacherFormSchema = z.object({
 });
 
 type TeacherFormData = z.infer<typeof teacherFormSchema>;
+const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
 
 const AddTeacherForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
- 
 
   const {
     register,
@@ -138,13 +138,10 @@ const AddTeacherForm: React.FC = () => {
 
   const subjects = watch('subjects');
   const gradeLevels = watch('gradeLevels');
- 
 
   const commonGradeLevels = [
-    'Kindergarten',  '1','2','3','4','5','6','7','8','9','10'
+    'Kindergarten', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
   ];
-
-  
 
   const addSubject = () => {
     const newSubject = prompt('Enter subject:');
@@ -169,13 +166,11 @@ const AddTeacherForm: React.FC = () => {
     setValue('gradeLevels', newGradeLevels);
   };
 
-   
-
   const onSubmit = async (data: TeacherFormData) => {
     setLoading(true);
     try {
-      console.log(data)
-      const response = await fetch('http://localhost:8000/api/teachers', {
+      console.log(data);
+      const response = await fetch(`${API_BASE_URL}/api/teachers`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -187,7 +182,6 @@ const AddTeacherForm: React.FC = () => {
         throw new Error('Failed to create teacher');
       }
 
- 
       alert('Teacher created successfully!');
       // Reset form or redirect as needed
       window.location.reload();
@@ -388,7 +382,7 @@ const AddTeacherForm: React.FC = () => {
                     key={index}
                     className="flex items-center gap-1 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
                   >
-                    {!Number.isNaN(Number(grade)) ? ` Class ${grade}`: grade}
+                    {!Number.isNaN(Number(grade)) ? ` Class ${grade}` : grade}
                     <button
                       type="button"
                       onClick={() => removeGradeLevel(index)}
