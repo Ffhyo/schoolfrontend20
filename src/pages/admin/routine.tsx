@@ -72,8 +72,7 @@ export default function Routine({
     practicalfullMarks: null
   });
 
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [editingSubjectId, setEditingSubjectId] = useState<string | null>(null);
+   const [editingSubjectId, setEditingSubjectId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchSubjects();
@@ -196,12 +195,7 @@ export default function Routine({
     }
   };
 
-  // Update routine
-  const updateRoutine = (id: string, field: keyof ExamRoutine, value: string) => {
-    setRoutines(routines.map(routine =>
-      routine.id === id ? { ...routine, [field]: value } : routine
-    ));
-  };
+  
 
   // Update subject - FIXED with API call
   const updateSubject = async (id: string, field: keyof Subject, value: string | number | null) => {
@@ -236,15 +230,7 @@ export default function Routine({
   };
 
   // Delete routine
-  const deleteRoutine = (id: string) => {
-    const routineToDelete = routines.find(routine => routine.id === id);
-   
-    setRoutines(routines.filter(routine => routine.id !== id));
-   
-    if (routineToDelete) {
-      addNotification(`Routine "${routineToDelete.examName}" deleted successfully!`);
-    }
-  };
+ 
 
   // Delete subject - FIXED with API call
   const deleteSubject = async (id: string) => {
@@ -282,10 +268,7 @@ export default function Routine({
     }
   };
 
-  // Start editing routine
-  const startEditing = (id: string) => {
-    setEditingId(id);
-  };
+  
 
   // Start editing subject
   const startEditingSubject = (id: string) => {
@@ -293,14 +276,7 @@ export default function Routine({
   };
 
   // Stop editing routine
-  const stopEditing = () => {
-    const routine = routines.find(r => r.id === editingId);
-    if (routine) {
-      addNotification(`Routine "${routine.examName}" updated successfully!`);
-    }
-    setEditingId(null);
-  };
-
+   
   // Stop editing subject
   const stopEditingSubject = () => {
     const subject = subjects.find(s => s.id === editingSubjectId);
@@ -311,14 +287,7 @@ export default function Routine({
   };
 
   // Get class name by ID
-  const getClassName = (classId: string) => {
-    return classes.find(cls => cls.id === classId)?.name || 'N/A';
-  };
-
-  // Get subject name by ID
-  const getSubjectName = (subjectId: string) => {
-    return subjects.find(subject => subject.id === subjectId)?.name || 'N/A';
-  };
+ 
 
   return (
     <>
