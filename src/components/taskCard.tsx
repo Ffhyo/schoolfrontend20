@@ -56,7 +56,7 @@ export default function TaskSuggestionCard() {
         message: userMessage
       };
 
-      const response = await fetch(`${API_BASE_URL}`, {
+      const response = await fetch(`${API_BASE_URL}/api/chat/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
