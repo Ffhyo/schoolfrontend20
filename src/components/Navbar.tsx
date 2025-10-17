@@ -206,7 +206,7 @@ const Navbar: React.FC<NavbarProps> = ({
           break;
           
         case 'loginToteacher':
-          response = await fetch("http://localhost:8000/api/teachers/login", {
+          response = await fetch(`${API_BASE_URL}/api/teachers/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -257,7 +257,7 @@ const Navbar: React.FC<NavbarProps> = ({
         case 'loginTostudent':
           // For student login, use mock or implement similar to above
  
-            response = await fetch("http://localhost:8000/api/students", {
+            response = await fetch(`${API_BASE_URL}/api/students`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
