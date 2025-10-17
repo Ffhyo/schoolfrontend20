@@ -27,6 +27,7 @@ interface SuggestionState {
     newsReading: boolean;
   };
 }
+const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
 
 export default function TaskSuggestionCard() {
   const [suggestions, setSuggestions] = useState<SuggestionState>({
@@ -55,7 +56,7 @@ export default function TaskSuggestionCard() {
         message: userMessage
       };
 
-      const response = await fetch('http://localhost:8000/api/chat/chat', {
+      const response = await fetch(`${API_BASE_URL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

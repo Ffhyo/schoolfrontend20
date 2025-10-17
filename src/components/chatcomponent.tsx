@@ -17,7 +17,7 @@ interface ApiResponse {
   reply: string;
   error?: string;
 }
-
+const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
 const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -56,7 +56,7 @@ const ChatBot = () => {
         message: userMessage
       };
 
-      const response = await fetch('http://localhost:8000/api/chat/chat', {
+      const response = await fetch(`${API_BASE_URL}/api/chat/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
