@@ -5,7 +5,7 @@ export default function HeroSection() {
   const [mainTitle, setMainTitle] = useState<string>("");
   const [subheadline, setSubheadline] = useState<string>("");
   const [heroImage, setHeroImage] = useState<File | null>(null);
-
+const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
   // Handle form submission
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default function HeroSection() {
     formData.append("heroImage", heroImage);
 
     try {
-      const response = await fetch(" http://localhost:8000/api/heroes", {
+      const response = await fetch(`${API_BASE_URL}/api/heroes`, {
         method: "POST",
         body: formData,
       });

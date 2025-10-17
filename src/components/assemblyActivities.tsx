@@ -30,7 +30,7 @@ interface Student {
   rollNumber: string;
   house: string;
 }
-
+const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
 export default function AssemblyActivities() {
   const [assemblyActivities, setAssemblyActivities] = useState<AssemblyActivity[]>([]);
   const [students, setStudents] = useState<Student[]>([]);
@@ -43,7 +43,7 @@ export default function AssemblyActivities() {
   // Fetch all students
   const fetchAllStudents = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/students/getStudent', {
+      const response = await fetch(`${API_BASE_URL}/api/students/getStudent`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ export default function AssemblyActivities() {
   // Fetch assembly activities
   const fetchAssemblyActivities = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/assembly', {
+      const response = await fetch(`${API_BASE_URL}/api/assembly`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
