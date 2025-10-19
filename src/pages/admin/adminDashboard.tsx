@@ -22,7 +22,11 @@ interface DashboardData {
   recentStudents: any[];
   adminActivity: any[];
 }
-const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
+
+const API_BASE_URL =  import.meta.env.VITE_REACT_APP_API_BASE_URL 
+console.log('API Base URL:', API_BASE_URL);
+ 
+
 const AdminDashboard: React.FC = () => {
   const { adminId } = useParams();
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);

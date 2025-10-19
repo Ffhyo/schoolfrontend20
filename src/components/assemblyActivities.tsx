@@ -30,7 +30,7 @@ interface Student {
   rollNumber: string;
   house: string;
 }
-const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 export default function AssemblyActivities() {
   const [assemblyActivities, setAssemblyActivities] = useState<AssemblyActivity[]>([]);
   const [students, setStudents] = useState<Student[]>([]);
@@ -359,6 +359,7 @@ export default function AssemblyActivities() {
           </button>
         </div>
       </div>
+
 
       {/* Statistics */}
       <div className="stats">

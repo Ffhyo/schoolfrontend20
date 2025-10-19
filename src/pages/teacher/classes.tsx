@@ -42,7 +42,7 @@ interface ClassType {
   students: string[];
   schedule: string[];
 }
-
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 export default function MyClasses() {
   const { teacherId } = useParams<{ teacherId: string }>();
   console.log('teacherId from params:', teacherId);
@@ -60,7 +60,7 @@ export default function MyClasses() {
       setLoading(true);
       
       // Fetch teacher data
-      const teacherResponse = await fetch(`http://localhost:8000/api/teachers/${teacherId}`);
+      const teacherResponse = await fetch(`${API_BASE_URL}/api/teachers/${teacherId}`);
       if (!teacherResponse.ok) throw new Error('Failed to fetch teacher data');
       const teacherData = await teacherResponse.json();
       setTeacher(teacherData.teacher);

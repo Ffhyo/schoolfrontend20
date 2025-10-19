@@ -17,7 +17,7 @@ interface ApiResponse {
   reply: string;
   error?: string;
 }
-const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {

@@ -27,7 +27,7 @@ interface SuggestionState {
     newsReading: boolean;
   };
 }
-const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 
 export default function TaskSuggestionCard() {
   const [suggestions, setSuggestions] = useState<SuggestionState>({

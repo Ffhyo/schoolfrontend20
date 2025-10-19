@@ -53,7 +53,7 @@ interface ClassSectionProps {
   addNotification: (message: string, type?: 'success' | 'error' | 'info') => void;
 }
 
-const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 
 export default function ClassSection({ addNotification }: ClassSectionProps) {
   // Active section state

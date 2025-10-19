@@ -11,7 +11,7 @@ import {
   AlertDialogDescription,
   AlertDialogCancel,
 } from './ui/alert-dialog';
-const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 
 interface NavbarProps {
   role?: 'guest' | 'admin' | 'teacher' | 'student';

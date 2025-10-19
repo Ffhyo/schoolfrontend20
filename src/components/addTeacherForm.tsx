@@ -72,7 +72,7 @@ const teacherFormSchema = z.object({
 });
 
 type TeacherFormData = z.infer<typeof teacherFormSchema>;
-const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 
 const AddTeacherForm: React.FC = () => {
   const [loading, setLoading] = useState(false);

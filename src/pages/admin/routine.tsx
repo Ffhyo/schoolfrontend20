@@ -40,7 +40,7 @@ interface RoutineProps {
   setRoutines: React.Dispatch<React.SetStateAction<ExamRoutine[]>>;
   addNotification: (message: string, type?: 'success' | 'error' | 'info') => void;
 }
-const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 export default function Routine({
   activeSection,
   classes,

@@ -47,7 +47,7 @@ interface ApiResponse {
 /**
  * Universal Class Schedule Component with Multiple Export Options
  */
-const API_BASE_URL='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 const UniversalExportClassSchedule: React.FC<ClassScheduleProps> = ({ 
   data, 
   title = "First terminal exam routine",

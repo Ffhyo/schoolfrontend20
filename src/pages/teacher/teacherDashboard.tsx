@@ -48,6 +48,7 @@ interface Stats {
   attendance: number;
   performance: string;
 }
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 
 const TeacherDashboard: React.FC = () => {
   const { id: paramId } = useParams();
@@ -69,7 +70,7 @@ const TeacherDashboard: React.FC = () => {
 
   const fetchTeacher = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/teachers/${id}`);
+      const response = await fetch(`${API_BASE_URL}/api/teachers/${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch teacher data');
       }

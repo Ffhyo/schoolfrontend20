@@ -61,7 +61,7 @@ interface MarksEntry {
   grade?: string;
   status?: string;
 }
-
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 export default function Report() {
   const { teacherId } = useParams<{ teacherId: string }>();
   const [assignGrade, setAssignGrade] = useState<string[]>([]);
@@ -79,7 +79,7 @@ export default function Report() {
 
   const fetchTeacher = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/teachers/${teacherId}`);
+      const response = await fetch(` ${API_BASE_URL}/api/teachers/${teacherId}`);
       if (!response.ok) throw new Error("Failed to fetch teacher data");
       const data = await response.json();
       setAssignGrade(data.teacher.gradeLevels || []);
@@ -93,7 +93,7 @@ export default function Report() {
   const fetchStudentByClassAndSection = async () => {
     if (!selectedClass) return;
     try {
-      const response = await fetch(`http://localhost:8000/api/students/getStudentByClass/${selectedClass}`);
+      const response = await fetch(` ${API_BASE_URL}/api/students/getStudentByClass/${selectedClass}`);
       if (!response.ok) throw new Error("Failed to fetch student data");
       const data = await response.json();
       setStudents(data.data);
@@ -132,7 +132,7 @@ export default function Report() {
 
   const fetchSubjects = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/subjects/subjects');
+      const response = await fetch(`${API_BASE_URL}/api/subjects/subjects`);
       if (!response.ok) throw new Error("Failed to fetch subjects");
       const data = await response.json();
       setSubjects(data.data);
@@ -187,7 +187,7 @@ export default function Report() {
     setMessage(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/exam-marks/bulk', {
+      const response = await fetch( `${API_BASE_URL}/api/exam-marks/bulk`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

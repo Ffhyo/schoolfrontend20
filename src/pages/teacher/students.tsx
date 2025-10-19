@@ -156,6 +156,7 @@ const MONTHS = [
   "July", "August", "September", "October", "November", "December"
 ];
 
+const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 export default function StudentsRelated() {  
     const [students, setStudents] = useState<Student[]>([]);
     const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
@@ -254,7 +255,7 @@ export default function StudentsRelated() {
     const fetchAllStudents = async () => {
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:8000/api/students/getStudent', {
+            const response = await fetch(`${API_BASE_URL}/api/students/getStudent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -278,7 +279,7 @@ export default function StudentsRelated() {
 
     const fetchClasses = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/class-sections', {
+            const response = await fetch(`${API_BASE_URL}/api/class-sections`, {
                 method: 'GET',  
                 headers: {
                     'Content-Type': 'application/json',
@@ -714,7 +715,7 @@ export default function StudentsRelated() {
     console.log('First activity sample:', activities[0]);
     console.log('Full activities data:', JSON.stringify(activities, null, 2));
     
-            const response = await fetch('http://localhost:8000/api/assembly/bulk', {
+            const response = await fetch(`${API_BASE_URL}/api/assembly/bulk`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -877,7 +878,7 @@ export default function StudentsRelated() {
 
             console.log("Sending chat request:", requestBody);
 
-            const response = await fetch('http://localhost:8000/api/chat/chatActivity', {
+            const response = await fetch(`${API_BASE_URL}/api/chat/chatActivity`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -963,7 +964,7 @@ export default function StudentsRelated() {
                 selectedActivityType: activity.activityType
             };
 
-            const response = await fetch('http://localhost:8000/api/chat/chatActivity', {
+            const response = await fetch( `${API_BASE_URL}/api/chat/chatActivity`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1058,7 +1059,7 @@ export default function StudentsRelated() {
                 selectedActivityType: activityType
             };
 
-            const response = await fetch('http://localhost:8000/api/chat/chatActivity', {
+            const response = await fetch(`${API_BASE_URL}/api/chat/chatActivity`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
