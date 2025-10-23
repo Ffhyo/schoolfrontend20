@@ -12,6 +12,7 @@ import {
   AlertDialogCancel,
 } from './ui/alert-dialog';
 const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
+console.log('API_BASE_URL in Navbar:', API_BASE_URL);
 
 interface NavbarProps {
   role?: 'guest' | 'admin' | 'teacher' | 'student';
