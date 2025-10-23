@@ -46,7 +46,10 @@ interface Hero {
   ctaText?: string;
   ctaLink?: string;
 }
-const API_BASE_URL ='https://schoolbackend-un9x.onrender.com'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+
+
+
 const Homepage: React.FC = () => {
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [loading, setLoading] = useState(true);
