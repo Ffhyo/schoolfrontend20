@@ -11,6 +11,7 @@ import {
   AlertDialogDescription,
   AlertDialogCancel,
 } from './ui/alert-dialog';
+import HeroSection from './hero-section';
 const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
 console.log('API_BASE_URL in Navbar:', API_BASE_URL);
 
@@ -412,6 +413,7 @@ const Navbar: React.FC<NavbarProps> = ({
             className="block w-full text-left p-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
             onClick={handleNavLinkClick}
           >
+            <HeroSection />
             Home
           </Link>
           <Link 

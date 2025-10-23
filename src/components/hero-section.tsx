@@ -6,6 +6,7 @@ export default function HeroSection() {
   const [subheadline, setSubheadline] = useState<string>("");
   const [heroImage, setHeroImage] = useState<File | null>(null);
 const API_BASE_URL= import.meta.env.VITE_REACT_APP_API_BASE_URL;
+console.log(API_BASE_URL)
   // Handle form submission
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

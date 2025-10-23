@@ -8,6 +8,7 @@ import {
 } from '../components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/hero-section';
 
 const reviews = [
   {
@@ -270,6 +271,8 @@ const Homepage: React.FC = () => {
                         <div className="text-white text-center p-8">
                           <h2 className="text-3xl font-bold mb-4">Sunflower Academy</h2>
                           <p className="text-xl">Excellence in Education</p>
+
+                          <HeroSection />
                         </div>
                       </div>
                     )}
